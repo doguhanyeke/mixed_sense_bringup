@@ -8,7 +8,7 @@ from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
 
 def generate_launch_description():
 
-    xrce_gps_bridge = IncludeLaunchDescription(
+    xrce_gps_bridge_1 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce.launch.py')),
         launch_arguments={
@@ -19,8 +19,33 @@ def generate_launch_description():
             'gps_delay': '0.0'
         }.items(),
     )
+    xrce_gps_bridge_2 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce.launch.py')),
+        launch_arguments={
+            'px4_ns': "px4_2",
+            'gz_world_name': "swarm",
+            'gz_model_name': "x500_2",
+            'gz_spoofer_model_name': "spoofer",
+            'gps_delay': '0.0'
+        }.items(),
+    )
+    xrce_gps_bridge_3 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce.launch.py')),
+        launch_arguments={
+            'px4_ns': "px4_3",
+            'gz_world_name': "swarm",
+            'gz_model_name': "x500_3",
+            'gz_spoofer_model_name': "spoofer",
+            'gps_delay': '0.0'
+        }.items(),
+    )
     
    
     return LaunchDescription([
-        xrce_gps_bridge,
+        xrce_gps_bridge_1,
+        xrce_gps_bridge_2,
+        xrce_gps_bridge_3,
+
     ])
