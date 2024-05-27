@@ -64,12 +64,53 @@ def generate_launch_description():
             'drone_id': "3",
         }.items(),
     )
-   
+    
+    vis_1 = Node(
+        package='px4_offboard',
+        executable='visualizer_swarm',
+        name='visualizer_swarm',
+        parameters=[
+            {'px4_ns': 'px4_1'},
+            {'initial_position': [-8.0, -6.0]},
+        ]   
+    )
+
+    vis_2 = Node(
+        package='px4_offboard',
+        executable='visualizer_swarm',
+        name='visualizer_swarm',
+        parameters=[
+            {'px4_ns': 'px4_2'},
+            {'initial_position': [-8.0, -8.0]},
+        ]   
+    )
+    
+    vis_3 = Node(
+        package='px4_offboard',
+        executable='visualizer_swarm',
+        name='visualizer_swarm',
+        parameters=[
+            {'px4_ns': 'px4_3'},
+            {'initial_position': [-8.0, -10.0]},
+        ]   
+    )
+
+    foxglove_studio = ExecuteProcess(cmd=["foxglove-studio"])
+    foxglove_bridge = IncludeLaunchDescription(XMLLaunchDescriptionSource(
+        os.path.join(
+        get_package_share_directory("mixed_sense_bringup"),
+        "launch/foxglove_bridge.launch",))
+    )
     return LaunchDescription([
         xrce_gps_bridge_1,
         xrce_gps_bridge_2,
         xrce_gps_bridge_3,
         orca_1,
         orca_2,
-        orca_3
+        orca_3,
+        vis_1,
+        vis_2,
+        vis_3,
+        foxglove_bridge,
+        foxglove_studio
     ])
