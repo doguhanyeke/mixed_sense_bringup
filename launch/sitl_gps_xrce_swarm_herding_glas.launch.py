@@ -9,10 +9,10 @@ from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
 def generate_launch_description():
     xrce_gps_bridge_1 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_navdelay_glas.launch.py')),
+            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_herding_glas.launch.py')),
         launch_arguments={
             'px4_ns': "px4_1",
-            'gz_world_name': "swarm_navdelay_glas",
+            'gz_world_name': "swarm_herding_glas",
             'gz_model_name': "x500_1",
             'gz_spoofer_model_name': "spoofer",
             'gps_delay': '0.0'
@@ -20,10 +20,10 @@ def generate_launch_description():
     )
     xrce_gps_bridge_2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_navdelay_glas.launch.py')),
+            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_herding_glas.launch.py')),
         launch_arguments={
             'px4_ns': "px4_2",
-            'gz_world_name': "swarm_navdelay_glas",
+            'gz_world_name': "swarm_herding_glas",
             'gz_model_name': "x500_2",
             'gz_spoofer_model_name': "spoofer",
             'gps_delay': '0.0'
@@ -31,10 +31,10 @@ def generate_launch_description():
     )
     xrce_gps_bridge_3 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_navdelay_glas.launch.py')),
+            os.path.join(get_package_share_directory('px4_gps'), 'launch', 'px4_gps_xrce_attack_herding_glas.launch.py')),
         launch_arguments={
             'px4_ns': "px4_3",
-            'gz_world_name': "swarm_navdelay_glas",
+            'gz_world_name': "swarm_herding_glas",
             'gz_model_name': "x500_3",
             'gz_spoofer_model_name': "spoofer",
             'gps_delay': '0.0'
